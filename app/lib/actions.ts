@@ -8,13 +8,13 @@ import { redirect } from 'next/navigation';
 const FormSchema = z.object({
   id: z.string(),
   customerId: z.string({
-    invalid_type_error: '고객을 선택하세요.',
+    invalid_type_error: 'Please select a customer.',
   }),
   amount: z.coerce
     .number()
-    .gt(0, { message: '0달러보다 높은 금액을 입력하세요.' }),
+    .gt(0, { message: 'Plaease enter an amount greater than $0.' }),
   status: z.enum(['pending', 'paid'], {
-    invalid_type_error: '송장 상태를 선택하세요.',
+    invalid_type_error: 'Please select an invoice status.',
   }),
   date: z.string(),
 });
